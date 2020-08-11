@@ -1,0 +1,15 @@
+.MapBody {
+    position: absolute;
+    left: 0;
+    top: 5vh;
+    z-index: -1;
+    width: 100%;
+    border: 3px solid black
+}
+
+.MapFont {
+    padding-top: 10px;
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    font-size: 5vh;
+}

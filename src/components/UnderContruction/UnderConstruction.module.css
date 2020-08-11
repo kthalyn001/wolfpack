@@ -1,0 +1,15 @@
+.WolfConstructor{
+    width: 35%;
+    margin: 0 auto;
+}
+
+.WolfConstructorOuter{
+    display: flex;
+    justify-content: center;
+}
+
+.Text {
+    text-align: center;
+    font-size: 2vw;
+}
+

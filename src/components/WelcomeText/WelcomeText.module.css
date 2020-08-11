@@ -1,0 +1,47 @@
+.TextBackground {
+    height: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-left: 2vw solid black;
+}
+
+.VerticalAlignText {
+    width: 50%;
+    font-size: 2vw;
+}
+
+.Span:before {
+    content: 'Puppies';
+    color: #F79F1F;
+    animation-delay: 5s;
+    animation: switch 10s linear infinite;
+}
+
+@keyframes switch {
+    0% {
+        content: 'coding 👨‍💻'
+    }
+    25% {
+        content: 'movies 🎥'
+    }
+    50% {
+        content: ' magic ✨'
+    }
+    75% {
+        content: 'gaming 🎮'
+    }
+    100% {
+        content: 'pizza 🍕'
+    }
+}
+
+.HeaderText {
+    font-size: 5vh;
+}
+
+.ParagraphText {
+    font-size: 2vh;
+}
+
