@@ -3,7 +3,7 @@ import './App.css';
 import SplashScreen from "./components/SplashScreen/SplashScreen";
 import MainPage from "./containers/MainPage/MainPage";
 import 'semantic-ui-css/semantic.min.css'
-import {HashRouter, Route, Switch} from "react-router-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import NavigationBar from "./containers/NavigationBar/NavigationBar";
 import WolvesPage from "./containers/Wolves/WolvesPage/WolvesPage";
 import PacksPage from "./containers/Packs/PacksPage/PacksPage";
@@ -25,7 +25,7 @@ class App extends Component {
     render() {
         return (
             this.state.isLoading ? <SplashScreen/>    :
-                <HashRouter>
+                <BrowserRouter>
                     <NavigationBar/>
                     <Switch>
                         <Route exact path="/" component={MainPage}/>
@@ -35,7 +35,7 @@ class App extends Component {
                         <Route path="/contact" component={UnderConstruction}/>
                     </Switch>
 
-                </HashRouter>
+                </BrowserRouter>
         );
     }
 }
