@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Form, Image, Modal} from "semantic-ui-react";
 import axios from "axios";
+import WolvesContext from "../../../context/WolvesContext";
 
 
 const options = [
@@ -9,6 +10,7 @@ const options = [
 ]
 
 class EditWolfModal extends Component {
+    static contextType = WolvesContext
     state = {
         wolfDeleted: false,
         //Modal status
@@ -76,7 +78,7 @@ class EditWolfModal extends Component {
                         this.setState({saveApiResponse: "Wolf has not been updated"})
                     }
                 }).catch(err => this.setState({saveApiResponse: "Wolf has not been updated"}));
-            this.props.updateC();
+            this.context.getWolves();
         } else {
             let message = "";
             for (const [key, value] of Object.entries(this.state.err)) {

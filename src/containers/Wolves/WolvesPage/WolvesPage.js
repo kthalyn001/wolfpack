@@ -4,31 +4,17 @@ import {Button, Icon, Input} from "semantic-ui-react";
 import cx from './WolvesPage.module.css'
 import WolvesList from "../../../components/WolvesList/WolvesList";
 import NewWolfModal from "../NewWolfModal/NewWolfModal";
+import WolvesContext from "../../../context/WolvesContext";
 
 class WolvesPage extends Component {
+    static contextType = WolvesContext
     state = {
-        wolves: null,
-        searchField: '',
         editMode: false,
     }
 
-    // TODO: Maybe avoid props drilling for this method - use Context API, Redux JS , etc...
-    getWolves = () => {
-        axios.get("/api/v1/wolves/", {
-            headers: {Authorization: `Bearer 9bAqXRPplyiGfF6n81NVUGpAqeLI1QHw46aqICVL1BLaGI6`}
-        }).then(response => {
-            this.setState({wolves: response.data});
-        })
-    }
-
-    componentDidMount() {
-        if (this.state.wolves === null) {
-            this.getWolves();
-        }
-    }
-
     onSearchChange = (event) => {
-        this.setState({searchField: event.target.value})
+        this.context.updateSearchField(event.target.value);
+
     }
 
     toggleEditMode = () => {
@@ -36,12 +22,7 @@ class WolvesPage extends Component {
     }
 
     render() {
-        let filteredWolves;
-        if (this.state.wolves) {
-            filteredWolves = this.state.wolves.filter(wolf => {
-                return wolf.name.toLowerCase().includes(this.state.searchField.toLowerCase());
-            })
-        }
+        console.log(this.context);
         return (
             <>
                 <div className={cx.WolfMenu}>
@@ -52,10 +33,7 @@ class WolvesPage extends Component {
                         mode: {this.state.editMode ? "ON" : "OFF"}</Button>
                     <NewWolfModal editMode={this.state.editMode} updateWolves={() => this.getWolves()}/>
                 </div>
-                {!filteredWolves ? "LOADING" : <WolvesList wolves={filteredWolves}
-                                                           updateWolves={() => this.getWolves()}
-                                                           editMode={this.state.editMode}
-                />}
+                <WolvesList editMode={this.state.editMode} />
             </>
         );
     }

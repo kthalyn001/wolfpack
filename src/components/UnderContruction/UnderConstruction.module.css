@@ -1,9 +1,9 @@
-.WolfConstructor{
+.WolfConstructor {
     width: 35%;
     margin: 0 auto;
 }
 
-.WolfConstructorOuter{
+.WolfConstructorOuter {
     display: flex;
     justify-content: center;
 }

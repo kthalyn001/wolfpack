@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import {Button, Card, Grid, Icon, Image, Menu, Segment} from "semantic-ui-react";
+import {Button, Grid, Menu, Segment} from "semantic-ui-react";
 import axios from "axios";
-import maleWolf from "../../../resources/wolfb.svg"
-import femaleWolf from "../../../resources/wolfg.svg"
 import EditPackModal from "../EditPackModal/EditPackModal";
 import NewWolfToPackModal from "../NewWolfToPackModal/NewWolfToPackModal";
 import ShowWolvesInPackModal from "../ShowWolfvesInPackModal/ShowWolvesInPackModal";
@@ -59,7 +57,6 @@ class PacksList extends Component {
             //TODO: Add a better visualisation to this
             .catch(err => alert("Wolf can't be removed"));
     }
-
 
 
     render() {
